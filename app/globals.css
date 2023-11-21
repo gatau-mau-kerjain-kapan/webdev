@@ -6,6 +6,13 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+  --primary-bean-master: #facb8a;
+  --primary-text: #f1dec9;
+  --primary-header: #1a1a1a;
+  --primary-one: #8d7b68;
+  --primary-two: #a4907c;
+  --primary-three: #c8b6a6;
+  --primary-four: #f1dec9;
 }
 
 @media (prefers-color-scheme: dark) {
