@@ -18,6 +18,10 @@
 @layer base {
   html,
   body {
-    @apply dark:bg-trueGray-900;
+    @apply dark:bg-primaryOne;
   }
+}
+
+.montserrat {
+  font-family: var(--font-montserrat);
 }

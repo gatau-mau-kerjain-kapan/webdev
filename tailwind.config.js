@@ -15,12 +15,17 @@ module.exports = withMT({
     extend: {
       colors: {
         trueGray: colors.neutral,
+        'primaryOne' : '#8d7b68',
+        'primaryTwo' : '#a4907c',
+        'primaryThree' : '#c8b6a6',
+        'primaryFour': '#f1dec9',
+        
       },
     },
-    fontFamily: {
-      sans: ["Poppins", ...defaultTheme.fontFamily.sans],
-      stock: [defaultTheme.fontFamily.sans],
-    },
+    // fontFamily: {
+    //   sans: ["var(--font-poppins)"],
+    //   stock: [defaultTheme.fontFamily.sans],
+    // },
   },
   variants: {
     extend: {},

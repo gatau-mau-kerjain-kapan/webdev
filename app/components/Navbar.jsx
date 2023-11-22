@@ -4,7 +4,7 @@ import Image from "next/image"
 import { Disclosure } from "@headlessui/react";
 
 const Navbar = () => {
-  const navigation = [
+  const navigation = [""
   ];
 
   return (
@@ -16,14 +16,14 @@ const Navbar = () => {
             <>
               <div className="flex flex-wrap items-center justify-between w-full lg:w-auto">
                 <Link href="/">
-                  <span className="flex items-center space-x-2 text-2xl font-medium text-indigo-500 dark:text-gray-100">
+                  <span className="flex items-center space-x-2 text-2xl font-medium text-black dark:text-gray-100">
                     <span>
                       <Image
-                        src="/next.svg"
+                        src="/img/coffee-icon.png"
                         alt="N"
                         width="32"
                         height="32"
-                        className="w-8"
+                        className="w-16"
                       />
                     </span>
                     <span>Beanmaster</span>
@@ -60,9 +60,12 @@ const Navbar = () => {
                           {item}
                       </Link>
                     ))}
-                    <Link href="/" className="w-full px-6 py-2 mt-3 text-center text-white bg-indigo-600 rounded-md lg:ml-5">         
-                        Get Started
+                    <Link href="/" className="w-4/5 px-6 py-2 mt-3 text-center text-white dark:text-primaryOne bg-primaryOne dark:bg-primaryFour rounded-md lg:ml-5">         
+                        Sign Up
                     </Link>
+                    <div className="w-1/5 px-6 py-2 mt-3 text-center lg:ml-5">
+                    <ThemeChanger />
+                    </div>
                   </>
                 </Disclosure.Panel>
               </div>
@@ -84,7 +87,7 @@ const Navbar = () => {
         </div>
 
         <div className="hidden mr-3 space-x-4 lg:flex nav__item">
-          <Link href="/" className="px-6 py-2 text-white bg-indigo-600 rounded-md md:ml-5">
+          <Link href="/" className="px-6 py-2 text-white dark:text-primaryOne bg-primaryOne dark:bg-primaryFour rounded-md md:ml-5">
               Sign Up
           </Link>
 
