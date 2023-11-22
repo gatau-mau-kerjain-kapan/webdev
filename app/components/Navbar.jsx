@@ -21,8 +21,8 @@ const Navbar = () => {
                       <Image
                         src="/img/coffee-icon.png"
                         alt="N"
-                        width="32"
-                        height="32"
+                        width="512"
+                        height="512"
                         className="w-16"
                       />
                     </span>
@@ -63,7 +63,7 @@ const Navbar = () => {
                     <Link href="/" className="w-4/5 px-6 py-2 mt-3 text-center text-white dark:text-primaryOne bg-primaryOne dark:bg-primaryFour rounded-md lg:ml-5">         
                         Sign Up
                     </Link>
-                    <div className="w-1/5 px-6 py-2 mt-3 text-center lg:ml-5">
+                    <div className="w-1/5 px-2 py-1 mt-3 text-center lg:ml-5  place-content-end">
                     <ThemeChanger />
                     </div>
                   </>
