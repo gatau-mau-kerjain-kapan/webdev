@@ -2,7 +2,9 @@
 
 import { Montserrat, Poppins } from 'next/font/google'
 import './globals.css'
-import { ThemeProvider } from "@material-tailwind/react";
+// import { ThemeProvider } from "@material-tailwind/react"
+import { ThemeProvider } from "next-themes";
+import Navbar from './components/Navbar';
 
 const montserrat = Montserrat({ subsets: ['latin'] })
 const poppins = Poppins({ subsets: ['latin'], weight: ["400", "700"] })
@@ -15,9 +17,13 @@ const poppins = Poppins({ subsets: ['latin'], weight: ["400", "700"] })
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <ThemeProvider>
-      <body className={poppins.className}>{children}</body>
+      <body className={poppins.className}>
+      <ThemeProvider attribute="class">
+      <Navbar/>
+        {children}
+
       </ThemeProvider>
+      </body>
     </html>
   )
 }
