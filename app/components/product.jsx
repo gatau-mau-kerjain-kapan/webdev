@@ -1,6 +1,8 @@
 "use client";
 
 import Image from "next/image";
+import { useState, useEffect } from "react";
+import axios from "axios";
 
 const ProductItem = ({ source, title }) => {
   return (
@@ -20,19 +22,33 @@ const ProductItem = ({ source, title }) => {
 };
 
 const Product = () => {
+  const [product, setProduct] = useState([]);
+  useEffect(() => {
+    axios
+      .get("/api/product")
+      .then((res) => {
+        console.log(res.data);
+        setProduct(res.data);
+      })
+      .catch((err) => {
+        console.log("error");
+      });
+  }, []);
   return (
     <>
-      <div className="w-[100vw] h-[100vh] bg-[#f1dec9] p-[45px] flex flex-col gap-[20px]">
+      <div className="w-[100vw] h-full bg-[#f1dec9] p-[45px] flex flex-col gap-[20px]">
         <div className="text-[45px] text-[#8d7b68]">Our Products</div>
         <div className="flex justify-center">
           <div className="flex flex-row flex-wrap gap-[4vh] justify-center">
-            <ProductItem source="/asset_kopi/kopi_aceh.png" title="kopi aceh" />
-            <ProductItem source="/asset_kopi/kopi_bali.png" title="kopi bali" />
-            <ProductItem source="/asset_kopi/kopi_jawa.png" title="kopi jawa" />
-            <ProductItem
-              source="/asset_kopi/kopi_toraja.png"
-              title="kopi toraja"
-            />
+            {product.map((item) => {
+              return (
+                <ProductItem
+                  key={item.key}
+                  source={item.source}
+                  title={item.title}
+                />
+              );
+            })}
           </div>
         </div>
       </div>
