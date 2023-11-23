@@ -7,7 +7,7 @@ import axios from "axios";
 const ProductItem = ({ source, title }) => {
   return (
     <>
-      <div className="w-[320px] h-[370px] bg-white flex flex-col justify-center items-center">
+      <div className="w-[320px] h-[370px] bg-white flex flex-col rounded-[15px] justify-center items-center">
         <Image
           src={source}
           alt={source}
@@ -36,10 +36,12 @@ const Product = () => {
   }, []);
   return (
     <>
-      <div className="w-[100vw] h-full bg-[#f1dec9] p-[45px] flex flex-col gap-[20px]">
-        <div className="text-[45px] text-[#8d7b68]">Our Products</div>
+      <div className="w-[99vw] h-full bg-[#f1dec9] p-[45px] flex flex-col gap-[20px]">
+        <div className="text-[45px] text-[#8d7b68] montserrat font-semibold">
+          Our Products
+        </div>
         <div className="flex justify-center">
-          <div className="flex flex-row flex-wrap gap-[4vh] justify-center">
+          <div className="flex flex-row flex-wrap gap-[4vh] justify-center montserrat font-bold">
             {product.map((item) => {
               return (
                 <ProductItem
