@@ -36,7 +36,7 @@ const Product = () => {
   }, []);
   return (
     <>
-      <div className="w-[100vw] h-full bg-[#f1dec9] p-[45px] flex flex-col gap-[20px]">
+      <div className="w-[99vw] h-full bg-[#f1dec9] p-[45px] flex flex-col gap-[20px]">
         <div className="text-[45px] text-[#8d7b68]">Our Products</div>
         <div className="flex justify-center">
           <div className="flex flex-row flex-wrap gap-[4vh] justify-center">

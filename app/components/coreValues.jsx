@@ -55,11 +55,11 @@ const CoreValues = () => {
 
   return (
     <>
-      <div className="w-[100vw] h-[100vh] flex flex-col justify-between">
-        <div className="w-[100vw] h-full bg-[#f1dec9] p-[45px] flex flex-col gap-[20px] justify-center">
+      <div className="w-[99vw] h-[100vh] flex flex-col justify-between">
+        <div className="h-full bg-[#f1dec9] p-[45px] flex flex-col gap-[20px] justify-center">
           <div className="text-[45px] text-[#8d7b68]">Core Values</div>
           <div className="flex justify-center">
-            <div className="flex flex-row flex-wrap gap-[4vh] justify-center">
+            <div className="flex flex-row flex-wrap gap-[4vh] justify-center ">
               {core.map((item) => {
                 return (
                   <CoreItem
@@ -73,7 +73,7 @@ const CoreValues = () => {
             </div>
           </div>
         </div>
-        <div className="w-[100vw] h-[153] bg-[#f1dec9] flex flew-row justify-between">
+        <div className="w-[99vw] h-[153] bg-[#f1dec9] flex flew-row justify-between">
           {arrayImg.map((item) => {
             return (
               <Image
