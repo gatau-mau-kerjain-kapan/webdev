@@ -5,6 +5,7 @@ import './globals.css'
 // import { ThemeProvider } from "@material-tailwind/react"
 import { ThemeProvider } from "next-themes";
 import Navbar from './components/Navbar';
+import Footer from './components/Footer';
 
 const montserrat = Montserrat({ subsets: ['latin'], variable: '--font-montserrat' })
 const poppins = Poppins({ subsets: ['latin'], weight: ["400", "700"], variable: '--font-poppins' })
@@ -34,7 +35,7 @@ export default function RootLayout({ children }) {
       <ThemeProvider attribute="class">
       <Navbar/>
         {children}
-
+      <Footer/>
       </ThemeProvider>
       </body>
     </html>

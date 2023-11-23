@@ -8,8 +8,7 @@ export default function HeroFaiq() {
     <>
       <div
         id="main-section"
-        className="w-[99vw] relative h-[500px] lg:h-screen flex items-center justify-center lg:justify-start bg-[url(/bar-background.jpeg)] lg:bg-[url(/bar-background.jpeg)] lg:bg-cover bg-no-repeat bg-center"
-      >
+        className="w-[99vw] relative h-[500px] lg:h-screen flex items-center justify-center lg:justify-start bg-[url(/bar-background.jpeg)] lg:bg-[url(/bar-background.jpeg)] lg:bg-cover bg-no-repeat bg-center">
         <div
           className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-[#1a1a1a] lg:from-20% to-[rgba(16,16,16,0.75)] lg:to-[rgba(16,16,16,0.3)]"
           // style={{
