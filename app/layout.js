@@ -2,10 +2,12 @@
 
 import { Montserrat, Poppins } from 'next/font/google'
 import './globals.css'
-import { ThemeProvider } from "@material-tailwind/react";
+// import { ThemeProvider } from "@material-tailwind/react"
+import { ThemeProvider } from "next-themes";
+import Navbar from './components/Navbar';
 
-const montserrat = Montserrat({ subsets: ['latin'] })
-const poppins = Poppins({ subsets: ['latin'], weight: ["400", "700"] })
+const montserrat = Montserrat({ subsets: ['latin'], variable: '--font-montserrat' })
+const poppins = Poppins({ subsets: ['latin'], weight: ["400", "700"], variable: '--font-poppins' })
 
 // export const metadata = {
 //   title: 'Create Next App',
@@ -15,9 +17,26 @@ const poppins = Poppins({ subsets: ['latin'], weight: ["400", "700"] })
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <ThemeProvider>
-      <body className={poppins.className}>{children}</body>
+      <style jsx global>{`
+        :root {
+          --font-montserrat: ${montserrat.style.fontFamily};
+          --font-poppins: ${poppins.style.fontFamily};
+        }
+        .montserrat {
+          font-family: var(--font-montserrat);
+        }
+
+        .poppins {
+          font-family: var(--font-poppins);
+        }
+      `}</style>
+      <body className={poppins.className}>
+      <ThemeProvider attribute="class">
+      <Navbar/>
+        {children}
+
       </ThemeProvider>
+      </body>
     </html>
   )
 }

@@ -15,10 +15,27 @@
   --primary-four: #f1dec9;
 }
 
+* { 
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 0, 0, 0;
   }
+}
+
+@layer base {
+  html,
+  body {
+    @apply dark:bg-primaryOne;
+  }
+}
+
+.montserrat {
+  font-family: var(--font-montserrat);
 }
