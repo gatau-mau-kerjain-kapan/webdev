@@ -28,18 +28,6 @@ export default function HeroFaiq() {
           </div>
         </div>
       </div>
-      <div
-        id="about-section"
-        className="w-[99vw] h-fit lg:h-screen flex justify-between items-center bg-[#c8b6a6]"
-      >
-        <div>
-          <h1 className="text-[#8d7b68] text-4xl ">About Us</h1>
-          <Typography className="text-[#8d7b68] text-sm">
-            Bean Maker was created in 2000 to facilitate every person who want
-            to have a coffee bean
-          </Typography>
-        </div>
-      </div>
     </>
   );
 }

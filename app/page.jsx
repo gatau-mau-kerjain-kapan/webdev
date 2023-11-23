@@ -8,12 +8,14 @@ import HeroFaiq from "./components/HeroFaiq";
 import Achievement from "./components/Achievement";
 import Testimonials from "./components/Testimonial";
 import Faq from "./components/Faq";
+import About from "./components/About";
 
 export default function Home() {
   return (
     <main>
       <HeroFaiq />
       {/* <Hero /> */}
+      <About />
       <Achievement />
       <CoreValues />
       <Product />
