@@ -9,6 +9,7 @@ import Achievement from "./components/Achievement";
 import Testimonials from "./components/Testimonial";
 import Faq from "./components/Faq";
 import About from "./components/About";
+import Commitment from "./components/Commitment";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
       <HeroFaiq />
       {/* <Hero /> */}
       <About />
+      <Commitment />
       <Achievement />
       <CoreValues />
       <Product />
