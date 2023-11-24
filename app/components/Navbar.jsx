@@ -2,8 +2,11 @@ import Link from "next/link";
 import ThemeChanger from "./ThemeSwitch";
 import Image from "next/image";
 import { Disclosure } from "@headlessui/react";
+// import { UserAuth } from "../context/AuthContext";
 
 const Navbar = () => {
+  // const { currentUser, emailSignIn } = UserAuth();
+
   const navigation = [""];
 
   return (
@@ -66,7 +69,7 @@ const Navbar = () => {
                       </Link>
                     ))}
                     <Link
-                      href="/"
+                      href="/auth"
                       className="w-4/5 px-6 py-2 mt-3 text-center text-white dark:text-primaryOne bg-primaryOne dark:bg-primaryFour rounded-md lg:ml-5"
                     >
                       Sign Up
@@ -99,7 +102,7 @@ const Navbar = () => {
 
         <div className="hidden mr-3 space-x-4 lg:flex nav__item">
           <Link
-            href="/"
+            href="/auth"
             className="px-6 py-2 text-white dark:text-primaryOne bg-primaryOne dark:bg-primaryFour rounded-md md:ml-5"
           >
             Sign Up
