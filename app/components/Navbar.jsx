@@ -7,8 +7,8 @@ const Navbar = () => {
   const navigation = [""];
 
   return (
-    <div className="w-full">
-      <nav className="container relative flex flex-wrap items-center justify-between p-8 mx-auto lg:justify-between xl:px-0">
+    <div className="w-[99vw]">
+      <nav className="flex-no-wrap container relative top-0 z-10 flex flex-wrap items-center justify-between p-8 mx-auto lg:justify-between xl:px-0 w-[99vw]">
         {/* Logo  */}
         <Disclosure>
           {({ open }) => (
