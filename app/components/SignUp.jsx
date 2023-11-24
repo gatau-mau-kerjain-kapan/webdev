@@ -6,57 +6,72 @@ export default function SignUp() {
 
     if(authState === "signup") {
     return (
-        <div class="bg-grey-lighter min-h-screen flex flex-col">
-            <div class="container max-w-sm mx-auto flex-1 flex flex-col items-center justify-center px-2">
-                <div class="bg-white px-6 py-8 rounded shadow-md text-black w-full">
-                    <h1 class="mb-8 text-3xl text-center">Sign up</h1>
-                    <input 
-                        type="text"
-                        class="block border border-grey-light w-full p-3 rounded mb-4"
-                        name="fullname"
-                        placeholder="Full Name" />
-
-                    <input 
-                        type="text"
-                        class="block border border-grey-light w-full p-3 rounded mb-4"
-                        name="email"
-                        placeholder="Email" />
-
-                    <input 
-                        type="password"
-                        class="block border border-grey-light w-full p-3 rounded mb-4"
-                        name="password"
-                        placeholder="Password" />
-                    <input 
-                        type="password"
-                        class="block border border-grey-light w-full p-3 rounded mb-4"
-                        name="confirm_password"
-                        placeholder="Confirm Password" />
-
-                    <button
-                        type="submit"
-                        class="w-full text-center py-3 rounded bg-green text-white hover:bg-green-dark focus:outline-none my-1"
-                    >Create Account</button>
-
-                    <div class="text-center text-sm text-grey-dark mt-4">
-                        By signing up, you agree to the 
-                        <a class="no-underline border-b border-grey-dark text-grey-dark" href="#">
-                            Terms of Service
-                        </a> and 
-                        <a class="no-underline border-b border-grey-dark text-grey-dark" href="#">
-                            Privacy Policy
-                        </a>
-                    </div>
+        <section class=" bg-blueGray-50">
+            <div class="w-full lg:w-6/12 px-4 mx-auto pt-6">
+            <div class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-primaryFour border-0">
+                <div class="rounded-t mb-0 px-6 py-6">
+                <div class="text-center mb-3">
+                    <h6 class="text-blueGray-500 text-sm font-bold">
+                    Sign up with
+                    </h6>
                 </div>
+                <div class="btn-wrapper text-center">
+                    <button class="bg-white active:bg-blueGray-50 text-blueGray-700 px-4 py-2 rounded outline-none focus:outline-none mr-2 mb-1 uppercase shadow hover:shadow-md inline-flex items-center font-bold text-xs ease-linear transition-all duration-150" type="button">
+                    <img alt="..." class="w-5 mr-1" src="https://demos.creative-tim.com/notus-js/assets/img/github.svg"/>Github </button>
+                    <button class="bg-white active:bg-blueGray-50 text-blueGray-700 px-4 py-2 rounded outline-none focus:outline-none mr-1 mb-1 uppercase shadow hover:shadow-md inline-flex items-center font-bold text-xs ease-linear transition-all duration-150" type="button">
+                    <img alt="..." class="w-5 mr-1" src="https://demos.creative-tim.com/notus-js/assets/img/google.svg"/>Google</button>
+                    
+                </div>
+                <hr class="mt-6 border-b-1 border-blueGray-300"/>
+                </div>
+                <div class="flex-auto px-4 lg:px-10 py-10 pt-0">
+                <div class="text-blueGray-400 text-center mb-3 font-bold">
+                    <small>Or sign up with credentials</small>
+                </div>
+                <form>
+                    <div class="relative w-full mb-3">
+                    <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlfor="grid-password"> Name</label>
+                    <input type="email" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="Name"/>
+                    </div>
 
-                <div class="text-grey-dark mt-6">
-                    Already have an account? 
-                    <a class="no-underline border-b border-blue text-blue" onClick={() => setAuthState("login")}>
-                         Log in
-                    </a>.
+                    <div class="relative w-full mb-3">
+                    <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlfor="grid-password">Email</label>
+                    <input type="email" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="Email"/>
+                    </div>
+
+                    <div class="relative w-full mb-3">
+                    <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlfor="grid-password">Password</label>
+                    <input type="password" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="Password"/>
+                    </div>
+
+                    <div>
+                    <label class="inline-flex items-center cursor-pointer">
+                        <input id="customCheckLogin" type="checkbox" class="form-checkbox border-0 rounded text-blueGray-700 ml-1 w-5 h-5 ease-linear transition-all duration-150"/>
+                        <span class="ml-2 text-sm font-semibold text-blueGray-600">
+                        I agree with the 
+                        <a href="javascript:void(0)" class="text-pink-500"> Privacy Policy
+                        </a>
+                        </span>
+                    </label>
+                    </div>
+
+                    <div class="text-center mt-6">
+                    <button class="bg-blueGray-800 text-white active:bg-blueGray-600 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full ease-linear transition-all duration-150" type="button">
+                        Create Account
+                    </button>
+                    </div>
+                </form>
+                
+                </div>
+                
+            </div>
+            <div class="text-grey-dark mt-6 text-center">
+                    Already having an account?
+                    <a class="no-underline border-b border-blue text-blue" onClick={() => setAuthState("login")}> Login
+                    </a>
                 </div>
             </div>
-        </div>
+        </section>
     )
     } else {
         return (
@@ -95,8 +110,7 @@ export default function SignUp() {
                     </div>
                     <div class="text-grey-dark mt-6">
                     Not have an account? 
-                    <a class="no-underline border-b border-blue text-blue" onClick={() => setAuthState("signup")}>
-                         SignUp
+                    <a class="no-underline border-b border-primaryFour text-primaryOne" onClick={() => setAuthState("signup")} role="button"> Sign Up
                     </a>.
                 </div>
                 </div>
