@@ -41,7 +41,7 @@ const Product = () => {
     <>
       <div className="w-[99vw] h-full bg-[#f1dec9] p-[45px] flex flex-col gap-[20px]">
         <div className="text-[45px] text-[#8d7b68] montserrat font-bold text-center">
-          Our Products
+          <Link href={`/ProdDetails`}>Our Products</Link>
         </div>
         <div className="flex justify-center">
           <div className="flex flex-row flex-wrap gap-[4vh] justify-center montserrat font-bold">
