@@ -45,7 +45,12 @@ const Commitment = () => {
             <CommitItem
               src={"/asset_komitmen/proses_kopi.jpg"}
               title={"High Quality Standards"}
-              desc="The harvested bean then run through an excellent processing process. With the help of highly sophisticated tools making it an high class coffee bean in the end. It also packed with modern machine to ensure it's sanity and healthiness"
+              desc="The harvested bean then run through an excellent processing process. With the help of highly sophisticated tools making it an high class coffee bean in the end."
+            />
+            <CommitItem
+              src={"/asset_komitmen/package_kopi.jpg"}
+              title={"Eco-friendly Packaging"}
+              desc="The final beans product are packed in an eco-friendly package. We also commit to not add plastic straw on our package."
             />
           </div>
         </div>

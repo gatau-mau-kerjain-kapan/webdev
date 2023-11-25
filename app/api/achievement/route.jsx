@@ -16,8 +16,8 @@ export async function GET(req, res) {
     },
     {
       key: 3,
-      data: 200,
-      desc: "worker spread across the country",
+      data: 23,
+      desc: "tons of trash has been saved by us every year",
       col: "#6D69AD",
     },
     {
