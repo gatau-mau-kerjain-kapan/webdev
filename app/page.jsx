@@ -18,7 +18,7 @@ export default function Home() {
       <HeroFaiq />
       {/* <Hero /> */}
       {/* <About /> */}
-      {/* <Commitment /> */}
+      <Commitment />
       {/* <Achievement /> */}
       {/* <CoreValues /> */}
       {/* <Product /> */}

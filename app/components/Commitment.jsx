@@ -4,7 +4,7 @@ const CommitItem = ({ src, title, desc }) => {
   return (
     <>
       <div className="w-[70vw] h-full flex flex-col lg:flex-row justify-between items-center p-[20px]">
-        <img
+        <Image
           src={src}
           alt={title}
           width={450}
