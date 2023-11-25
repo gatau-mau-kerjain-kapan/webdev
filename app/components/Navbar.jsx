@@ -2,14 +2,32 @@ import Link from "next/link";
 import ThemeChanger from "./ThemeSwitch";
 import Image from "next/image";
 import { Disclosure } from "@headlessui/react";
+// import { UserAuth } from "../context/AuthContext";
+import { usePathname } from "next/navigation";
+import { UserAuth } from "../context/AuthContext";
 
 const Navbar = () => {
+  // const { currentUser, emailSignIn } = UserAuth();
+  const path = usePathname();
+  const { currentUser } = UserAuth();
+
   const navigation = [""];
+
+  var menuNavBar;
+
+  if (currentUser) {
+    menuNavBar = currentUser.displayName;
+  } else {
+    if (path === "/auth") {
+      menuNavBar = "Home";
+    } else if (path === "/") {
+      menuNavBar = "Sign Up";
+    }
+  }
 
   return (
     <div className="w-[99vw]">
       <nav className="flex-no-wrap container relative top-0 z-10 flex flex-wrap items-center justify-between p-8 mx-auto lg:justify-between xl:px-0 w-[99vw]">
-        {/* Logo  */}
         <Disclosure>
           {({ open }) => (
             <>
@@ -65,12 +83,22 @@ const Navbar = () => {
                         {item}
                       </Link>
                     ))}
+
+                    {path !== "/auth" ? (
                     <Link
-                      href="/"
+                      href="/auth"
                       className="w-4/5 px-6 py-2 mt-3 text-center text-white dark:text-primaryOne bg-primaryOne dark:bg-primaryFour rounded-md lg:ml-5"
                     >
-                      Sign Up
+                      {menuNavBar}
                     </Link>
+                    ) : (
+                      <Link
+                      href="/"
+                      className="w-4/5 px-6 py-2 mt-3 text-center text-white dark:text-primaryOne bg-primaryOne dark:bg-primaryFour rounded-md lg:ml-5" 
+                    >
+                      {menuNavBar}
+                    </Link>
+                    )}
                     <div className="w-1/5 px-2 py-1 mt-3 text-center lg:ml-5  place-content-end">
                       <ThemeChanger />
                     </div>
@@ -97,16 +125,29 @@ const Navbar = () => {
           </ul>
         </div>
 
-        <div className="hidden mr-3 space-x-4 lg:flex nav__item">
-          <Link
-            href="/"
-            className="px-6 py-2 text-white dark:text-primaryOne bg-primaryOne dark:bg-primaryFour rounded-md md:ml-5"
-          >
-            Sign Up
-          </Link>
+        {path !== "/auth" ? (
+          <div className="hidden mr-3 space-x-4 lg:flex nav__item">
+            <Link
+              href="/auth"
+              className="px-6 py-2 text-white dark:text-primaryOne bg-primaryOne dark:bg-primaryFour rounded-md md:ml-5"
+            >
+              {menuNavBar}
+            </Link>
 
-          <ThemeChanger />
-        </div>
+            <ThemeChanger />
+          </div>
+        ) : (
+          <div className="hidden mr-3 space-x-4 lg:flex nav__item">
+            <Link
+              href="/"
+              className="px-6 py-2 text-white dark:text-primaryOne bg-primaryOne dark:bg-primaryFour rounded-md md:ml-5"
+            >
+              {menuNavBar}
+            </Link>
+
+            <ThemeChanger />
+          </div>
+        )}
       </nav>
     </div>
   );
