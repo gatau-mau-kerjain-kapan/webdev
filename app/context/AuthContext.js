@@ -1,9 +1,18 @@
 import { useContext, createContext, useState, useEffect } from "react";
 import {
     signInWithEmailAndPassword,
+    createUserWithEmailAndPassword,
+    signOut,
+    getAuth,
+    updateProfile,
+    GoogleAuthProvider,
+    signInWithPopup,
+    setPersistence,
+    browserSessionPersistence,
 
 } from "firebase/auth";
 import { auth } from "./firebase";
+import { set } from "firebase/database";
 
 const AuthContext = createContext();
 
@@ -13,8 +22,59 @@ export const AuthContextProvider = ({ children }) => {
     const [loading, setLoading] = useState(true);
 
     const emailSignIn = (email, password) => {
-        return signInWithEmailAndPassword(auth, email, password);
+        signInWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+            const user = userCredential.user;
+            setCurrentUser(user);
+        })
     };
+
+    const emailSignUp = (name, email, password) => {
+        createUserWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+            // Signed in 
+            updateProfile(userCredential.user, {
+                displayName : name,
+            })
+            console.log(userCredential.user);
+            setCurrentUser(userCredential.user);
+        }).catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            // ..
+        });
+    };
+
+    const emailLogOut = () => {
+        signOut(auth);
+        setCurrentUser(null);
+    }
+
+    const googleSignIn = () => {
+        if(!auth.currentUser) {
+          setPersistence(auth, browserSessionPersistence)
+          .then(() => {
+            const provider = new GoogleAuthProvider();
+            provider.setCustomParameters({
+              prompt : 'select_account'
+            });
+            setLoading(true);
+            return signInWithPopup(auth, provider)
+            .catch((error) => {
+              console.log(error);
+              setLoading(false);
+              Swal.close();
+            })
+    
+          })
+        }
+        
+      };
+
+      const googleLogOut = () => {
+        signOut(auth);
+        setCurrentUser(null);
+      }
 
     useEffect(() => {
         const unsubscribe = auth.onAuthStateChanged((user) => {
@@ -27,11 +87,19 @@ export const AuthContextProvider = ({ children }) => {
     const value = {
         currentUser,
         emailSignIn,
+        emailSignUp,
+        emailLogOut,
+        googleSignIn,
+        googleLogOut,
     };
 
     return (
         <AuthContext.Provider value={value}>
-            {!loading && children}
+            {children}
         </AuthContext.Provider>
     );
 }
+
+export const UserAuth = () => {
+    return useContext(AuthContext);
+};

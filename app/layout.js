@@ -6,6 +6,7 @@ import './globals.css'
 import { ThemeProvider } from "next-themes";
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import { AuthContextProvider } from './context/AuthContext';
 
 const montserrat = Montserrat({ subsets: ['latin'], variable: '--font-montserrat' })
 const poppins = Poppins({ subsets: ['latin'], weight: ["400", "700"], variable: '--font-poppins' })
@@ -32,11 +33,13 @@ export default function RootLayout({ children }) {
         }
       `}</style>
       <body className={poppins.className}>
+      <AuthContextProvider>
       <ThemeProvider attribute="class">
       <Navbar/>
         {children}
       <Footer/>
       </ThemeProvider>
+      </AuthContextProvider>
       </body>
     </html>
   )
