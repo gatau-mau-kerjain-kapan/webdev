@@ -2,55 +2,56 @@ import Image from "next/image";
 import React from "react";
 import Container from "./Container";
 
-const Testimonials  = () => {
+const Testimonials = () => {
   return (
     <Container>
       <div className="grid gap-10 lg:grid-cols-2 xl:grid-cols-3">
         <div className="lg:col-span-2 xl:col-auto">
-          <div className="flex flex-col justify-between w-full h-full bg-primaryFour px-14 rounded-2xl py-14 dark:bg-trueGray-800 ">
+          <div className="flex flex-col justify-between w-full h-full bg-gray-100 px-14 rounded-2xl py-14 dark:bg-trueGray-800 ">
             <p className="text-2xl leading-normal ">
-              Website ini <Mark>lebih baik</Mark> dari apa yang saya buat
+              Aroma kopi dari Beanmaster <Mark>unik dan wangi.</Mark> Berbeda
+              dari kopi lainnya
             </p>
 
             <Avatar
               image={"/img/coffee-icon.png"}
-              name="Brandon Rafael"
-              title="Sepuh TETI 22"
+              name="Lyno Rel"
+              title="Kedaikita's Owner"
             />
           </div>
         </div>
         <div className="">
           <div className="flex flex-col justify-between w-full h-full bg-gray-100 px-14 rounded-2xl py-14 dark:bg-trueGray-800">
             <p className="text-2xl leading-normal ">
-              Saya <Mark>right sentence</Mark>
-              to keep it short and simple.
+              Rasa Kopi Jawa di sini <Mark>khas </Mark> dan <Mark>nikmat</Mark>
+              dibanding Kopi Jawa pada umumnya
             </p>
 
             <Avatar
               image={"/img/coffee-icon.png"}
-              name="Dylan Ambrose"
-              title="Lead marketer at Netflix"
+              name="Irsad"
+              title="Head of Marketing in Kopiku"
             />
           </div>
         </div>
         <div className="">
           <div className="flex flex-col justify-between w-full h-full bg-gray-100 px-14 rounded-2xl py-14 dark:bg-trueGray-800">
             <p className="text-2xl leading-normal ">
-              This is an <Mark>awesome</Mark> landing page template I&apos;ve seen. I
-              would use this for anything.
+              Kopi di sini <Mark>tahan lama</Mark> meskipun di simpan dalam
+              waktu lama
             </p>
 
             <Avatar
               image={"/img/coffee-icon.png"}
-              name="Gabrielle Winn"
-              title="Co-founder of Acme Inc"
+              name="Harun"
+              title="Penikmat Kopi"
             />
           </div>
         </div>
       </div>
     </Container>
   );
-}
+};
 
 function Avatar(props) {
   return (
@@ -62,7 +63,7 @@ function Avatar(props) {
           height="40"
           alt="Avatar"
           placeholder="blur"
-        blurDataURL={props.image}
+          blurDataURL={props.image}
         />
       </div>
       <div>

@@ -10,16 +10,17 @@ const AchievementItem = ({ data, desc, col }) => {
   const [counterOn, setCounterOn] = useState(false);
   return (
     <>
-      <ScrollTrigger
-        onEnter={() => setCounterOn(true)}
-        onExit={() => setCounterOn(false)}
-      />
       <div className="w-[330px] p-[15px] h-[200px] flex flex-col text-center justify-center bg-white rounded-[15px] relative">
+        <ScrollTrigger
+          onEnter={() => setCounterOn(true)}
+          onExit={() => setCounterOn(false)}
+        />
+
         <div className="text-[60px]" style={{ color: col }}>
           {counterOn && <CountUp start={0} end={data} duration={2} delay={0} />}
           +
         </div>
-        <div className="text-[23px]">{desc}</div>
+        <div className="text-[23px] text-primaryOne">{desc}</div>
       </div>
     </>
   );
