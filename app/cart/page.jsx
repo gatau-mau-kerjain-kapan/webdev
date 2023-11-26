@@ -88,7 +88,7 @@ export default function Cart() {
                 setCart(data);
                 Object.values(data).forEach((item) => {
                     setTotal(total + item.price * item.quantity);
-                }
+                });
             })
         } catch (err) {
             console.log(err)
