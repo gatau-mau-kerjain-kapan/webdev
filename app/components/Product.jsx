@@ -4,6 +4,8 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Link from "next/link";
+import { db } from "../context/firebase";
+import { ref, get, child, onValue, set, push, update } from 'firebase/database';
 
 const ProductItem = ({ source, title }) => {
   return (
@@ -27,14 +29,12 @@ const ProductItem = ({ source, title }) => {
 const Product = () => {
   const [product, setProduct] = useState([]);
   useEffect(() => {
-    axios
-      .get("/api/product")
-      .then((res) => {
-        setProduct(res.data);
-      })
-      .catch((err) => {
-        console.log("error");
-      });
+    onValue(ref(db, 'product'), (snapshot) => {
+      const data = snapshot.val();
+      setProduct(data);
+    }, {
+      onlyOnce: true
+    })
   }, []);
   return (
     <>
@@ -55,6 +55,7 @@ const Product = () => {
                 </Link>
               );
             })}
+            
             <Link className="group relative overflow-hidden bg-primaryTwo focus:ring-4 focus:ring-primaryTwo inline-flex items-center px-7 py-2.5 rounded-lg text-white justify-center" href="/ProdDetails">
             <span className="z-40">Discover all of our products!</span>
             <div
