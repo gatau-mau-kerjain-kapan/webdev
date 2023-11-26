@@ -2,7 +2,6 @@ import Link from "next/link";
 import ThemeChanger from "./ThemeSwitch";
 import Image from "next/image";
 import { Disclosure } from "@headlessui/react";
-// import { UserAuth } from "../context/AuthContext";
 import { usePathname } from "next/navigation";
 import { UserAuth } from "../context/AuthContext";
 
@@ -22,6 +21,8 @@ const Navbar = () => {
       menuNavBar = "Home";
     } else if (path === "/") {
       menuNavBar = "Sign Up";
+    } else if (path.includes("/ProdDetails")) {
+      menuNavBar = "My Cart";
     }
   }
 

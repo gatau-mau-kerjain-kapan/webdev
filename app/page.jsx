@@ -25,13 +25,12 @@ export default function Home() {
   return (
     <main>
       <HeroFaiq />
-      {/* <Hero /> */}
-      {/* <About /> */}
+      <About />
       <Commitment />
-      {/* <Achievement /> */}
-      {/* <CoreValues /> */}
-      {/* <Product /> */}
-      {/* <Testimonials /> */}
+      <Achievement />
+      <CoreValues />
+      <Product />
+      <Testimonials />
       <Map />
       <Faq />
     </main>
