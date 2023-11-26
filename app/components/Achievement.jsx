@@ -15,7 +15,7 @@ const AchievementItem = ({ data, desc, col }) => {
       <div className="w-[330px] p-[15px] h-[200px] flex flex-col text-center justify-center bg-white rounded-[15px] relative">
         <ScrollTrigger
           onEnter={() => setCounterOn(true)}
-          onExit={() => setCounterOn(false)}
+          // onExit={() => setCounterFlag(true)}
         />
 
         <div className="text-[60px]" style={{ color: col }}>
