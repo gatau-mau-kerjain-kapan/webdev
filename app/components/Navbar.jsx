@@ -44,7 +44,7 @@ const Navbar = () => {
   }, [scrollTop]);
 
   return (
-    <div className={`fixed w-full p-0 z-20 bg-[#f4d5d5] dark:bg-[#8d7b68] transition-all duration-300 ${scrolling ? '-top-40' : 'top-0'}`} >
+    <div className={`fixed w-full p-0 z-20 bg-primaryFour dark:bg-[#8d7b68] transition-all duration-300 ${scrolling ? '-top-40' : 'top-0'}`} >
       <nav className="flex-no-wrap container relative top-0 z-40 flex flex-wrap items-center justify-between p-3 mx-auto lg:justify-between xl:px-0 w-[99vw]">
         <Disclosure>
           {({ open }) => (
