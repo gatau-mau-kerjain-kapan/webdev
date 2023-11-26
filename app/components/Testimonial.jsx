@@ -37,8 +37,8 @@ const Testimonials = () => {
         <div className="">
           <div className="flex flex-col justify-between w-full h-full bg-gray-100 px-14 rounded-2xl py-14 dark:bg-trueGray-800">
             <p className="text-2xl leading-normal ">
-              Kopi di sini <Mark>tahan lama</Mark> meskipun di simpan dalam
-              waktu lama
+              Kopi di sini tetap <Mark>terjaga kualitasnya</Mark> meskipun di
+              simpan dalam waktu lama
             </p>
 
             <Avatar

@@ -12,7 +12,6 @@ import {
 
 } from "firebase/auth";
 import { auth } from "./firebase";
-import { set } from "firebase/database";
 
 const AuthContext = createContext();
 
@@ -63,7 +62,6 @@ export const AuthContextProvider = ({ children }) => {
             .catch((error) => {
               console.log(error);
               setLoading(false);
-              Swal.close();
             })
     
           })

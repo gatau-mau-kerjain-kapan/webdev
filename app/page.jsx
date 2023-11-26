@@ -10,18 +10,20 @@ import Testimonials from "./components/Testimonial";
 import Faq from "./components/Faq";
 import About from "./components/About";
 import Commitment from "./components/Commitment";
+import Map from "./components/Map";
 
 export default function Home() {
   return (
     <main>
       <HeroFaiq />
       {/* <Hero /> */}
-      <About />
+      {/* <About /> */}
       <Commitment />
-      <Achievement />
-      <CoreValues />
-      <Product />
-      <Testimonials />
+      {/* <Achievement /> */}
+      {/* <CoreValues /> */}
+      {/* <Product /> */}
+      {/* <Testimonials /> */}
+      <Map />
       <Faq />
     </main>
   );
