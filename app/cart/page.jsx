@@ -241,7 +241,7 @@ export default function Cart() {
                 return (
                     <>
                     <Container>
-                        <div className="flex justify-center items-center p">
+                        <div className="h-[40vh] flex justify-center items-center p">
                             <div className="text-center">
                                 <h1 className="text-2xl font-semibold">Your cart is empty</h1>
                                 <p className="text-gray-500 mb-3">Looks like you haven&#39;t added anything to your cart yet</p>
