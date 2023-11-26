@@ -24,4 +24,4 @@ beanmaster.vercel.app
 1. Firebase Realtime Database
 
 # Team
-| [![Faiq Pramantya](https://avatars.githubusercontent.com/u/138311752?v=4&s=144)](https://github.com/faiqpr) | [![Harun](https://avatars.githubusercontent.com/u/78070957?v=4&s=144)](https://github.com/runs664) | [![Polikarpus Arya](https://avatars.githubusercontent.com/u/103818115?v=4&s=144)](https://github.com/mie-intel)
+|  [![Faiq Pramantya](https://avatars.githubusercontent.com/u/138311752?v=4&s=144)](https://github.com/faiqpr) | [![Harun](https://avatars.githubusercontent.com/u/78070957?v=4&s=144)](https://github.com/runs664) | [![Polikarpus Arya](https://avatars.githubusercontent.com/u/103818115?v=4&s=144)](https://github.com/mie-intel)
