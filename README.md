@@ -1,36 +1,27 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Beanmaster
 
-## Getting Started
+Situs ini dibuat sebagai bahan lomba untuk Teti Programming Week 2023
 
-First, run the development server:
+# Deployment
+beanmaster.vercel.app
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+# Sites
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Landing Page
+## Products
+## Checkout Page
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+# Built with
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Front End
+1. Next Js
+2. Leaflet.js
 
-## Learn More
+## Back End
+1. Next Js
 
-To learn more about Next.js, take a look at the following resources:
+## Database
+1. Firebase Realtime Database
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+# Team
+| [![Faiq Pramantya](https://avatars.githubusercontent.com/u/138311752?v=4&s=144)](https://github.com/faiqpr) | [![Harun](https://avatars.githubusercontent.com/u/78070957?v=4)](https://github.com/runs664) | [![Polikarpus Arya](https://avatars.githubusercontent.com/u/103818115?v=4)](https://github.com/mie-intel)
