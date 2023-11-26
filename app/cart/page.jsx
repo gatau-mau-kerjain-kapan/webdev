@@ -86,7 +86,9 @@ export default function Cart() {
             onValue(ref(db, 'cart/' + currentUser.uid), (snapshot) => {
                 const data = snapshot.val();
                 setCart(data);
-                setTotal(data.reduce((a, b) => a + (b.price * b.quantity), 0) ?? 0)
+                Object.values(data).forEach((item) => {
+                    setTotal(total + item.price * item.quantity);
+                }
             })
         } catch (err) {
             console.log(err)
@@ -152,8 +154,8 @@ export default function Cart() {
                             </div>
                             <div class="flex items-center space-x-4">
                                 <p class="text-sm">{(item.price??0).toLocaleString('id', {style: 'currency', currency: 'IDR'})}</p>
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-5 w-5 cursor-pointer duration-150 hover:text-red-500">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" onClick={() => removeItem(item.key)}/>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-5 w-5 cursor-pointer duration-150 hover:text-red-500" onClick={() => removeItem(item.key)}>
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
                                 </svg>
                             </div>
                             </div>
