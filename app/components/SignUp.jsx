@@ -36,7 +36,7 @@ export default function SignUp() {
     
     if(authState === "signup") {
     return (
-        <section class=" bg-blueGray-50">
+        <section class=" bg-blueGray-50 m-36">
             <div class="w-full lg:w-6/12 px-4 mx-auto pt-6">
             <div class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-primaryFour border-0">
                 <div class="rounded-t mb-0 px-6 py-6">

@@ -83,6 +83,7 @@ export default function Footer() {
       </div>
       <p className=" text-center text-xs mt-10">
         Copyright © 2023. Made with ♥ by &quot;Gatau mau kerjain kapan&quot;.
+
       </p>
     </div>
   );
