@@ -14,16 +14,22 @@
     "@material-tailwind/react": "^2.1.4",
     "axios": "^1.6.2",
     "firebase": "^10.6.0",
+    "leaflet": "^1.9.4",
     "nanoid": "^5.0.3",
     "next": "14.0.3",
     "next-themes": "^0.2.1",
     "react": "^18",
     "react-countup": "^6.5.0",
     "react-dom": "^18",
-    "react-scroll-trigger": "^0.6.14"
+    "react-leaflet": "^4.2.1",
+    "react-scroll-trigger": "^0.6.14",
+    "sharp": "^0.32.6",
+    "sweetalert2": "^11.10.1"
   },
   "devDependencies": {
     "@tailwindcss/aspect-ratio": "^0.4.2",
+    "@types/leaflet": "^1.9.8",
+    "@types/react-leaflet": "^3.0.0",
     "autoprefixer": "^10.4.16",
     "eslint": "^8",
     "eslint-config-next": "14.0.3",

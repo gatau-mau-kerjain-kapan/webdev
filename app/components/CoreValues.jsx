@@ -3,6 +3,8 @@
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { db } from "../context/firebase";
+import { ref, get, child, onValue, set, push, update } from 'firebase/database';
 
 const CoreItem = ({ source, title, col }) => {
   return (
@@ -32,17 +34,26 @@ const CoreItem = ({ source, title, col }) => {
 
 const CoreValues = () => {
   const [core, setCore] = useState([]);
+//   useEffect(() => {
+//     axios
+//       .get("/api/cores")
+//       .then((res) => {
+//         console.log(res.data);
+//         setCore(res.data);
+//       })
+//       .catch((err) => {
+//         console.log("error");
+//       });
+//   }, []);
+
   useEffect(() => {
-    axios
-      .get("/api/cores")
-      .then((res) => {
-        console.log(res.data);
-        setCore(res.data);
-      })
-      .catch((err) => {
-        console.log("error");
-      });
-  }, []);
+    onValue(ref(db, 'coreValues'), (snapshot) => {
+      const data = snapshot.val();
+      setCore(data);
+    }, {
+      onlyOnce: true
+    })
+  }, []) 
 
   const [arrayImg, setArrayImg] = useState([]);
   useEffect(() => {

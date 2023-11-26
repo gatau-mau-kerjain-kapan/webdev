@@ -63,7 +63,6 @@ export const AuthContextProvider = ({ children }) => {
             .catch((error) => {
               console.log(error);
               setLoading(false);
-              Swal.close();
             })
     
           })

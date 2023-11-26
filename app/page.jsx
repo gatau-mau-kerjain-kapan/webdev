@@ -12,10 +12,10 @@ import About from "./components/About";
 import Commitment from "./components/Commitment";
 
 export default function Home() {
+
   return (
     <main>
       <HeroFaiq />
-      {/* <Hero /> */}
       <About />
       <Commitment />
       <Achievement />

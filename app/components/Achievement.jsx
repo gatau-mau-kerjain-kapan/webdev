@@ -2,9 +2,11 @@
 
 import Image from "next/image";
 import { useState, useEffect } from "react";
-import axios from "axios";
+// import axios from "axios";
 import CountUp from "react-countup";
 import ScrollTrigger from "react-scroll-trigger";
+import { db } from "../context/firebase";
+import { ref, get, child, onValue, set, push, update } from 'firebase/database';
 
 const AchievementItem = ({ data, desc, col }) => {
   const [counterOn, setCounterOn] = useState(false);
@@ -13,7 +15,7 @@ const AchievementItem = ({ data, desc, col }) => {
       <div className="w-[330px] p-[15px] h-[200px] flex flex-col text-center justify-center bg-white rounded-[15px] relative">
         <ScrollTrigger
           onEnter={() => setCounterOn(true)}
-          onExit={() => setCounterOn(false)}
+          // onExit={() => setCounterFlag(true)}
         />
 
         <div className="text-[60px]" style={{ color: col }}>
@@ -28,17 +30,26 @@ const AchievementItem = ({ data, desc, col }) => {
 
 const Achievement = () => {
   const [core, setCore] = useState([]);
+  // useEffect(() => {
+  //   axios
+  //     .get("/api/achievement")
+  //     .then((res) => {
+  //       console.log(res.data);
+  //       setCore(res.data);
+  //     })
+  //     .catch((err) => {
+  //       console.log("error");
+  //     });
+  // }, []);
+
   useEffect(() => {
-    axios
-      .get("/api/achievement")
-      .then((res) => {
-        console.log(res.data);
-        setCore(res.data);
-      })
-      .catch((err) => {
-        console.log("error");
-      });
-  }, []);
+    onValue(ref(db, 'achievement'), (snapshot) => {
+      const data = snapshot.val();
+      setCore(data);
+    }, {
+      onlyOnce: true
+    })
+  }, [])
 
   return (
     <>

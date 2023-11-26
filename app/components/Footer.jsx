@@ -2,6 +2,20 @@ import Link from "next/link";
 import Image from "next/image";
 import React from "react";
 import Container from "./Container";
+import { useMemo } from "react";
+import dynamic from "next/dynamic";
+
+export default function Footer() {
+  const Map = useMemo(() => dynamic(
+    () => import('./Map'),
+    { 
+      loading: () => <p>A map is loading</p>,
+      ssr: false
+    }
+  ), [])
+
+  return (
+    <div className="text-[#8d7b68] bg-[#f1dec9] px-5 pt-10 pb-10">
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function Footer() {
@@ -64,11 +78,18 @@ export default function Footer() {
         <div className="">
           <p className="text-lg mb-2">Our Location</p>
           <div className="w-[320px] h-[240px] bg-gray-500 flex justify-center items-center">
+
+            <Map />
+
             Map Container
+
           </div>
         </div>
       </div>
       <p className=" text-center text-xs mt-10">Copyright © 2023. Made with ♥ by "Gatau mau kerjain kapan".</p>
     </div>
   );
+
 }
+}
+
