@@ -12,7 +12,7 @@ export default function Auth() {
         return (
             <>
             <div className="flex flex-col items-center justify-center">
-                <h1 className="text-3xl font-bold text-center">You are already logged in!</h1>
+                <h1 className="mt-5 text-3xl font-bold text-center">You are already logged in!</h1>
                 <Image src="/img/coffee-icon.png" alt="coffee icon" width="512" height="512" />
             </div>
 
