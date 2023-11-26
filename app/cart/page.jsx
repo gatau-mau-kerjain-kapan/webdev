@@ -32,6 +32,7 @@ export default function Cart() {
             <div class="rounded-lg md:w-2/3">
                 {product.map((item) => {
                     return (
+                        <div key={item.key}>
                         <div class="justify-between mb-6 rounded-lg bg-white p-6 shadow-md sm:flex sm:justify-start">
                         <Image
                             src={item.source}
@@ -60,6 +61,7 @@ export default function Cart() {
                             </div>
                         </div>
                         </div>
+                    </div>
                     )
                 })}
 
