@@ -1,4 +1,6 @@
+
 "use client";
+
 
 import L from "leaflet";
 import { MapContainer, Marker, TileLayer, Popup } from "react-leaflet";
@@ -7,6 +9,8 @@ import MarkerShadow from "../../node_modules/leaflet/dist/images/marker-shadow.p
 import "leaflet/dist/leaflet.css";
 
 const Map = () => {
+
+  
   return (
     <>
       <MapContainer
