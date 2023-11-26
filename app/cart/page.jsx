@@ -51,7 +51,7 @@ export default function Cart() {
 
         if(document.getElementById("address").value && (document.getElementById("wa").checked || document.getElementById("cod").checked)) {
         if(document.getElementById("wa").checked) {
-            window.open("https://wa.me/625876048549?text=Hello%2C%20I%20want%20to%20verify%20my%20order%20for%20these%20product%3A%20" + urlEncodeString(Object.values(cart).map((item) => item.name + "%20x" + item.quantity).join(", ")) + ".%20The%20total%20price%20of%20this%20order%20is%20" + (total + shipping).toLocaleString('id', {style: 'currency', currency: 'IDR'}) + ".%20I%20also%20want%20this%20product%20to%20be%20sent%20to%20" + urlEncodeString(document.getElementById("address").value) + ".%20Thank%20you!")
+            window.open("https://wa.me/6285876048549?text=Hello%2C%20I%20want%20to%20verify%20my%20order%20for%20these%20product%3A%20" + urlEncodeString(Object.values(cart).map((item) => item.name + "%20x" + item.quantity).join(", ")) + ".%20The%20total%20price%20of%20this%20order%20is%20" + (total + shipping).toLocaleString('id', {style: 'currency', currency: 'IDR'}) + ".%20I%20also%20want%20this%20product%20to%20be%20sent%20to%20" + urlEncodeString(document.getElementById("address").value) + ".%20Thank%20you!")
             
             remove(ref(db, 'cart/' + currentUser.uid));
         } else {
