@@ -4,13 +4,14 @@ import Image from "next/image";
 import { Disclosure } from "@headlessui/react";
 import { usePathname } from "next/navigation";
 import { UserAuth } from "../context/AuthContext";
+import React, { useState, useEffect } from 'react';
 
 const Navbar = () => {
   // const { currentUser, emailSignIn } = UserAuth();
   const path = usePathname();
   const { currentUser } = UserAuth();
 
-  const navigation = [""];
+  const navigation = ["Home", "Products"];
 
   var menuNavBar;
 
@@ -26,9 +27,24 @@ const Navbar = () => {
     }
   }
 
+  const [scrolling, setScrolling] = useState(false);
+  const [scrollTop, setScrollTop] = useState(0);
+
+  const handleScroll = () => {
+    setScrollTop(document.documentElement.scrollTop);
+    setScrolling(document.documentElement.scrollTop > scrollTop);
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [scrollTop]);
+
   return (
-    <div className="w-[99vw]">
-      <nav className="flex-no-wrap container relative top-0 z-10 flex flex-wrap items-center justify-between p-8 mx-auto lg:justify-between xl:px-0 w-[99vw]">
+    <div className="w-full ${scrolling ? 'top-0' : '-top-16'}`}  fixed z-20 bg-[#f1dec9] dark:bg-[#8d7b68]">
+      <nav className="flex-no-wrap container relative top-0 z-40 flex flex-wrap items-center justify-between p-3 mx-auto lg:justify-between xl:px-0 w-[99vw]">
         <Disclosure>
           {({ open }) => (
             <>
