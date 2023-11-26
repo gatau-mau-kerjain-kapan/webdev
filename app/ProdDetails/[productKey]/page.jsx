@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Image from "next/image";
-import Swal from 'sweetalert2';
+import Swal from "sweetalert2";
 import { Breadcrumbs } from "@material-tailwind/react";
 import Link from "next/link";
 import { UserAuth } from "app/context/AuthContext.js";
@@ -10,7 +10,7 @@ import { useRouter } from "next/navigation";
 import CartBar from "../components/CartBar";
 import ShopCart from "../components/ShopCart";
 import { db } from "app/context/firebase.js";
-import { ref, get, child, onValue, set, push, update } from 'firebase/database';
+import { ref, get, child, onValue, set, push, update } from "firebase/database";
 
 const ProductDetails = ({ params }) => {
   const { currentUser } = UserAuth();
@@ -18,18 +18,22 @@ const ProductDetails = ({ params }) => {
   const router = useRouter();
 
   useEffect(() => {
-    onValue(ref(db, 'product'), (snapshot) => {
-      const data = snapshot.val();
-      setProduct(() => {
-        return data.filter((item) => {
-          return Number(item.key) === Number(params.productKey);
+    onValue(
+      ref(db, "product"),
+      (snapshot) => {
+        const data = snapshot.val();
+        setProduct(() => {
+          return data.filter((item) => {
+            return Number(item.key) === Number(params.productKey);
+          });
         });
-      });
-    }, {
-      onlyOnce: true
-    })
+      },
+      {
+        onlyOnce: true,
+      }
+    );
   }, []);
-  
+
   return (
     <>
       <CartBar />
@@ -53,19 +57,30 @@ const ProductDetails = ({ params }) => {
                 <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
               </svg>
             </Link>
-            <Link href="/ProdDetails" className="opacity-60">Products</Link>
-            <Link href={`/ProdDetails/${params.productKey}`} className="opacity-60">{product[0].title}</Link>
+            <Link href="/ProdDetails" className="opacity-60">
+              Products
+            </Link>
+            <Link
+              href={`/ProdDetails/${params.productKey}`}
+              className="opacity-60"
+            >
+              {product[0].title}
+            </Link>
           </Breadcrumbs>
           <div className="montserrat font-bold text-primaryOne text-center md:text-start text-[60px]">
             {product[0].title}
           </div>
           <div className="montserrat font-semibold text-[25px] text-white bg-primaryTwo rounded-[10px] p-[5px] w-max text-center md:text-start">
-            {(product[0].price??0).toLocaleString('id', {style: 'currency', currency: 'IDR'})}/pack
+            {(product[0].price ?? 0).toLocaleString("id", {
+              style: "currency",
+              currency: "IDR",
+            })}
+            /pack
           </div>
-          <div className="montserrat font-semibold text-[20px] text-justify md:text-justify">
+          <div className="montserrat font-semibold dark:text-black text-[20px] text-justify md:text-justify">
             {product[0].desc}
           </div>
-          <table className="table-fixed w-[70vw] md:w-[50vw] text-start mt-4">
+          <table className="table-fixed dark:text-black w-[70vw] md:w-[50vw] text-start mt-4 montserrat font-semibold">
             <tbody>
               <tr>
                 <td>Dimension</td>
@@ -78,10 +93,9 @@ const ProductDetails = ({ params }) => {
             </tbody>
           </table>
           <div className="mt-6">
-          <ShopCart/>
+            <ShopCart />
+          </div>
         </div>
-        </div>
-        
       </div>
     </>
   );

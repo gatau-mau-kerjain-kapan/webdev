@@ -10,7 +10,7 @@ const Navbar = () => {
   const path = usePathname();
   const { currentUser } = UserAuth();
 
-  const navigation = [""];
+  const navigation = [];
 
   var menuNavBar;
 
@@ -86,19 +86,19 @@ const Navbar = () => {
                     ))}
 
                     {path !== "/auth" ? (
-                    <Link
-                      href="/auth"
-                      className="w-4/5 px-6 py-2 mt-3 text-center text-white dark:text-primaryOne bg-primaryOne dark:bg-primaryFour rounded-md lg:ml-5"
-                    >
-                      {menuNavBar}
-                    </Link>
+                      <Link
+                        href="/auth"
+                        className="w-4/5 px-6 py-2 mt-3 text-center text-white dark:text-primaryOne bg-primaryOne dark:bg-primaryFour rounded-md lg:ml-5"
+                      >
+                        {menuNavBar}
+                      </Link>
                     ) : (
                       <Link
-                      href="/"
-                      className="w-4/5 px-6 py-2 mt-3 text-center text-white dark:text-primaryOne bg-primaryOne dark:bg-primaryFour rounded-md lg:ml-5" 
-                    >
-                      {menuNavBar}
-                    </Link>
+                        href="/"
+                        className="w-4/5 px-6 py-2 mt-3 text-center text-white dark:text-primaryOne bg-primaryOne dark:bg-primaryFour rounded-md lg:ml-5"
+                      >
+                        {menuNavBar}
+                      </Link>
                     )}
                     <div className="w-1/5 px-2 py-1 mt-3 text-center lg:ml-5  place-content-end">
                       <ThemeChanger />
