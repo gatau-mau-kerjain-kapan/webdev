@@ -63,7 +63,6 @@ export const AuthContextProvider = ({ children }) => {
             .catch((error) => {
               console.log(error);
               setLoading(false);
-              Swal.close();
             })
     
           })
@@ -95,7 +94,7 @@ export const AuthContextProvider = ({ children }) => {
 
     return (
         <AuthContext.Provider value={value}>
-            {children}
+            {!loading && children}
         </AuthContext.Provider>
     );
 }

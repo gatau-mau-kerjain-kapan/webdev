@@ -2,7 +2,6 @@ import Link from "next/link";
 import ThemeChanger from "./ThemeSwitch";
 import Image from "next/image";
 import { Disclosure } from "@headlessui/react";
-// import { UserAuth } from "../context/AuthContext";
 import { usePathname } from "next/navigation";
 import { UserAuth } from "../context/AuthContext";
 
@@ -11,7 +10,7 @@ const Navbar = () => {
   const path = usePathname();
   const { currentUser } = UserAuth();
 
-  const navigation = [""];
+  const navigation = [];
 
   var menuNavBar;
 
@@ -22,6 +21,8 @@ const Navbar = () => {
       menuNavBar = "Home";
     } else if (path === "/") {
       menuNavBar = "Sign Up";
+    } else if (path.includes("/ProdDetails")) {
+      menuNavBar = "My Cart";
     }
   }
 
@@ -85,19 +86,19 @@ const Navbar = () => {
                     ))}
 
                     {path !== "/auth" ? (
-                    <Link
-                      href="/auth"
-                      className="w-4/5 px-6 py-2 mt-3 text-center text-white dark:text-primaryOne bg-primaryOne dark:bg-primaryFour rounded-md lg:ml-5"
-                    >
-                      {menuNavBar}
-                    </Link>
+                      <Link
+                        href="/auth"
+                        className="w-4/5 px-6 py-2 mt-3 text-center text-white dark:text-primaryOne bg-primaryOne dark:bg-primaryFour rounded-md lg:ml-5"
+                      >
+                        {menuNavBar}
+                      </Link>
                     ) : (
                       <Link
-                      href="/"
-                      className="w-4/5 px-6 py-2 mt-3 text-center text-white dark:text-primaryOne bg-primaryOne dark:bg-primaryFour rounded-md lg:ml-5" 
-                    >
-                      {menuNavBar}
-                    </Link>
+                        href="/"
+                        className="w-4/5 px-6 py-2 mt-3 text-center text-white dark:text-primaryOne bg-primaryOne dark:bg-primaryFour rounded-md lg:ml-5"
+                      >
+                        {menuNavBar}
+                      </Link>
                     )}
                     <div className="w-1/5 px-2 py-1 mt-3 text-center lg:ml-5  place-content-end">
                       <ThemeChanger />
