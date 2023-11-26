@@ -16,13 +16,16 @@ export default function Footer() {
   );
 
   return (
-    <div className="text-[#8d7b68] bg-[#f1dec9] px-5 pt-10 pb-10">
+    <div className="text-[#8d7b68] bg-[#f1dec9] px-5 pt-10 pb-10 montserrat font-semibold">
       <div className="flex flex-wrap gap-y-10 md:justify-center md:items-center">
         <div className="md:w-1/2">
           <div>
             <div className="flex items-center">
-              <img
+              <Image
                 src="/img/coffee-icon.png"
+                alt="_"
+                width={300}
+                height={300}
                 className="w-[40px] lg:w-[60px]"
               />
               <span className="text-black text-lg lg:text-3xl ms-2">
@@ -30,9 +33,9 @@ export default function Footer() {
               </span>
             </div>
             <p className="mt-2 md:w-3/4 text-sm md:text-base">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-              Voluptates aut saepe modi sunt accusantium repudiandae quas
-              facilis amet magni laboriosam.
+              Komplek Fakultas Teknik UGM, Jl. Grafika No.2, Yogyakarta,
+              Sendowo, Sinduadi, Kec. Mlati, Kota Yogyakarta, Daerah Istimewa
+              Yogyakarta 55281
             </p>
           </div>
           <div className="mt-10 w-fit">
@@ -79,7 +82,8 @@ export default function Footer() {
         </div>
       </div>
       <p className=" text-center text-xs mt-10">
-        Copyright © 2023. Made with ♥ by "Gatau mau kerjain kapan".
+        Copyright © 2023. Made with ♥ by &quot;Gatau mau kerjain kapan&quot;.
+
       </p>
     </div>
   );

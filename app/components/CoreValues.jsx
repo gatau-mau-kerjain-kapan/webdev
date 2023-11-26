@@ -4,9 +4,9 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { db } from "../context/firebase";
-import { ref, get, child, onValue, set, push, update } from 'firebase/database';
+import { ref, get, child, onValue, set, push, update } from "firebase/database";
 
-const CoreItem = ({ source, title, col }) => {
+const CoreItem = ({ source, title, col, dCol }) => {
   return (
     <>
       <div className="w-[330px] h-[280px] flex-col bg-[#f1dec9] rounded-[15px] relative">
@@ -22,7 +22,7 @@ const CoreItem = ({ source, title, col }) => {
           }}
         />
         <div
-          className="text-[4vh] flex bg-white rounded-[15px] z-50 w-full h-[80px] justify-center items-center"
+          className={`text-[4vh] flex bg-white rounded-[15px] z-50 w-full h-[80px] justify-center items-center col`}
           style={{ color: col, position: "absolute", bottom: 0 }}
         >
           <div>{title}</div>
@@ -34,29 +34,19 @@ const CoreItem = ({ source, title, col }) => {
 
 const CoreValues = () => {
   const [core, setCore] = useState([]);
-//   useEffect(() => {
-//     axios
-//       .get("/api/cores")
-//       .then((res) => {
-//         console.log(res.data);
-//         setCore(res.data);
-//       })
-//       .catch((err) => {
-//         console.log("error");
-//       });
-//   }, []);
-
-  useEffect(() => {
-    onValue(ref(db, 'coreValues'), (snapshot) => {
-      const data = snapshot.val();
-      setCore(data);
-    }, {
-      onlyOnce: true
-    })
-  }, []) 
-
   const [arrayImg, setArrayImg] = useState([]);
+
   useEffect(() => {
+    onValue(
+      ref(db, "coreValues"),
+      (snapshot) => {
+        const data = snapshot.val();
+        setCore(data);
+      },
+      {
+        onlyOnce: true,
+      }
+    );
     let tmp = [];
     for (let i = 0; i < 7; ++i) {
       tmp.push({

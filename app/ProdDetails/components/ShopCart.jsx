@@ -2,10 +2,20 @@ import Swal from 'sweetalert2';
 import { UserAuth } from '@/app/context/AuthContext';
 import { set, update, ref, onValue, get, child } from 'firebase/database';
 import { db } from '@/app/context/firebase';
+import { useState, useEffect } from 'react';
 
 export default function ShopCart(value) {
-    console.log(value)
     const { currentUser } = UserAuth();
+    const [product, setProduct] = useState([{ source: "", title: "" }]);
+
+    useEffect(() => {
+        onValue(ref(db, 'product'), (snapshot) => {
+            const data = snapshot.val();
+            setProduct(data);
+        }, {
+            onlyOnce: true
+        })
+    }, []);
 
     const showBuyModal = () => {
         if(!currentUser){
@@ -34,6 +44,8 @@ export default function ShopCart(value) {
                 if (!inputValue || inputValue < 1) {
                   Swal.showValidationMessage(`Please enter the quantity`)
                 }
+                
+
                 get(child(ref(db), 'cart/' + currentUser.uid + '/' + value['value'])).then((snapshot) => {
                     if(snapshot.exists()) {
                         update(ref(db), {
@@ -42,7 +54,10 @@ export default function ShopCart(value) {
                     } else {
                         set(ref(db, 'cart/' + currentUser.uid + '/' + value['value']), {
                             quantity: Number(inputValue),
-                            key: value['value']
+                            key: value['value'],
+                            name: product[value['value']].title,
+                            price: product[value['value']].price,
+                            source: product[value['value']].source
                         })
                     }
                 }

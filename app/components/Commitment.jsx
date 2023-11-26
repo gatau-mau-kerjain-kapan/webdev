@@ -12,7 +12,7 @@ const CommitItem = ({ src, title, desc }) => {
           className="w-3/4 lg:w-3/5 max-w-[450px] rounded-[30px]"
         />
         <div
-          className="h-full flex items-center lg:items-left text-center lg:text-left flex-col text-primaryOne dark:text-white montserrat font-bold justify-center flex-wrap m-[40px]"
+          className="h-full flex items-center lg:items-left text-center lg:text-justify flex-col text-primaryOne dark:text-white montserrat font-bold justify-center flex-wrap m-[40px]"
           style={{
             position: "sticky",
             right: 0,

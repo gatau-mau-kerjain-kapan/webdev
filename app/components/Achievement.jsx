@@ -6,7 +6,7 @@ import { useState, useEffect } from "react";
 import CountUp from "react-countup";
 import ScrollTrigger from "react-scroll-trigger";
 import { db } from "../context/firebase";
-import { ref, get, child, onValue, set, push, update } from 'firebase/database';
+import { ref, get, child, onValue, set, push, update } from "firebase/database";
 
 const AchievementItem = ({ data, desc, col }) => {
   const [counterOn, setCounterOn] = useState(false);
@@ -30,26 +30,19 @@ const AchievementItem = ({ data, desc, col }) => {
 
 const Achievement = () => {
   const [core, setCore] = useState([]);
-  // useEffect(() => {
-  //   axios
-  //     .get("/api/achievement")
-  //     .then((res) => {
-  //       console.log(res.data);
-  //       setCore(res.data);
-  //     })
-  //     .catch((err) => {
-  //       console.log("error");
-  //     });
-  // }, []);
 
   useEffect(() => {
-    onValue(ref(db, 'achievement'), (snapshot) => {
-      const data = snapshot.val();
-      setCore(data);
-    }, {
-      onlyOnce: true
-    })
-  }, [])
+    onValue(
+      ref(db, "achievement"),
+      (snapshot) => {
+        const data = snapshot.val();
+        setCore(data);
+      },
+      {
+        onlyOnce: true,
+      }
+    );
+  }, []);
 
   return (
     <>
