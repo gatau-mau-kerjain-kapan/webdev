@@ -12,6 +12,7 @@ import {
 
 } from "firebase/auth";
 import { auth } from "./firebase";
+import { set } from "firebase/database";
 
 const AuthContext = createContext();
 

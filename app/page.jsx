@@ -10,8 +10,6 @@ import Testimonials from "./components/Testimonial";
 import Faq from "./components/Faq";
 import About from "./components/About";
 import Commitment from "./components/Commitment";
-import { useMemo } from "react";
-import dynamic from "next/dynamic";
 
 export default function Home() {
 
