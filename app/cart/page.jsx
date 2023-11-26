@@ -8,6 +8,7 @@ import { db } from "../context/firebase";
 import { ref, get, child, onValue, set, push, update, remove } from 'firebase/database';
 import Image from "next/image";
 import Link from "next/link";
+import Swal from "sweetalert2";
 
 export default function Cart() {
     const router = useRouter();
@@ -16,6 +17,62 @@ export default function Cart() {
     const [total, setTotal] = useState(0);
     const [shipping, setShipping] = useState(10000);
     const [product, setProduct] = useState([{ source: "", title: "" }]);
+
+    function urlEncodeString(inputString) {
+        return inputString.split('').map(function (char) {
+          switch (char) {
+            case '&':
+              return encodeURIComponent(char);
+            case '<':
+              return encodeURIComponent(char);
+            case '>':
+              return encodeURIComponent(char);
+            case '"':
+              return encodeURIComponent(char);
+            case "'":
+              return encodeURIComponent(char);
+            case ',':
+              return encodeURIComponent(char);
+            case ':':
+              return encodeURIComponent(char);
+            case ' ':
+              return encodeURIComponent(char);
+            case '?':
+              return encodeURIComponent(char);
+            default:
+              return char;
+          }
+        }).join('');
+    }
+
+    const checkOut = () => {
+        // template
+        // "Hello, I want to verify my order for these product: [list of product] . The total price of this order is ${price} + ${shipping_price} = ${total} I also want this product to be sent to ${address} Thank you!"
+
+        if(document.getElementById("address").value && (document.getElementById("wa").checked || document.getElementById("cod").checked)) {
+        if(document.getElementById("wa").checked) {
+            window.open("https://wa.me/625876048549?text=Hello%2C%20I%20want%20to%20verify%20my%20order%20for%20these%20product%3A%20" + urlEncodeString(Object.values(cart).map((item) => item.name + "%20x" + item.quantity).join(", ")) + ".%20The%20total%20price%20of%20this%20order%20is%20" + (total + shipping).toLocaleString('id', {style: 'currency', currency: 'IDR'}) + ".%20I%20also%20want%20this%20product%20to%20be%20sent%20to%20" + urlEncodeString(document.getElementById("address").value) + ".%20Thank%20you!")
+            
+            remove(ref(db, 'cart/' + currentUser.uid));
+        } else {
+            Swal.fire({
+                title: 'Success!',
+                text: 'Your Cash on Delivery order has been placed',
+                icon: 'success',
+                confirmButtonText: 'Ok'
+            })
+            
+            remove(ref(db, 'cart/' + currentUser.uid));
+        }
+    } else {
+        Swal.fire({
+            title: 'Error!',
+            text: 'Please fill in all the fields',
+            icon: 'error',
+            confirmButtonText: 'Ok'
+        })
+    }
+    }
 
     useEffect(() => {
         try{
@@ -132,7 +189,7 @@ export default function Cart() {
             <div class="relative h-10 w-full min-w-[200px]">
                 <input
                 class="peer h-full w-full rounded-[7px] border border-blue-gray-200 bg-transparent px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 focus:border-pink-500 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50"
-                placeholder=" "
+                placeholder=" " id="address"
                 />
                 <label class="before:content[' '] after:content[' '] pointer-events-none absolute left-0 -top-1.5 flex h-full w-full select-none text-[11px] font-normal leading-tight text-blue-gray-400 transition-all before:pointer-events-none before:mt-[6.5px] before:mr-1 before:box-border before:block before:h-1.5 before:w-2.5 before:rounded-tl-md before:border-t before:border-l before:border-blue-gray-200 before:transition-all after:pointer-events-none after:mt-[6.5px] after:ml-1 after:box-border after:block after:h-1.5 after:w-2.5 after:flex-grow after:rounded-tr-md after:border-t after:border-r after:border-blue-gray-200 after:transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[3.75] peer-placeholder-shown:text-blue-gray-500 peer-placeholder-shown:before:border-transparent peer-placeholder-shown:after:border-transparent peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-pink-500 peer-focus:before:border-t-2 peer-focus:before:border-l-2 peer-focus:before:border-pink-500 peer-focus:after:border-t-2 peer-focus:after:border-r-2 peer-focus:after:border-pink-500 peer-disabled:text-transparent peer-disabled:before:border-transparent peer-disabled:after:border-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500">
                 Address
@@ -144,7 +201,7 @@ export default function Cart() {
             <p class="text-gray-700">Choose payment method</p>
                 <div class="grid grid-cols-1 gap-2 p-4">
                 <label>
-                    <input type="radio" value="1" class="peer hidden" name="framework"/>
+                    <input id="wa" type="radio" value="0" class="peer hidden" name="framework"/>
                     
                     <div class="hover:bg-gray-50 flex items-center justify-between px-4 py-2 border-2 rounded-lg cursor-pointer text-sm border-gray-200 group peer-checked:border-blue-500">
                         <h2 class="font-medium text-gray-700">WhatsApp Verification</h2>
@@ -155,7 +212,7 @@ export default function Cart() {
                 </label>
 
                 <label>
-                    <input type="radio" value="1" class="peer hidden" name="framework"/>
+                    <input id="cod" type="radio" value="1" class="peer hidden" name="framework"/>
                     
                     <div class="hover:bg-gray-50 flex items-center justify-between px-4 py-2 border-2 rounded-lg cursor-pointer text-sm border-gray-200 group peer-checked:border-blue-500">
                         <h2 class="font-medium text-gray-700">Cash on Delivery</h2>
@@ -172,7 +229,7 @@ export default function Cart() {
             <label for="checkbox-1" class="text-sm ml-3 font-medium text-gray-900">I agree to the <a href="#" class="text-blue-600 hover:underline">terms and conditions</a></label>
             </div>
 
-                <button class="mt-6 w-full rounded-md bg-blue-500 py-1.5 font-medium text-blue-50 hover:bg-blue-600">Check out</button>
+                <button class="mt-6 w-full rounded-md bg-blue-500 py-1.5 font-medium text-blue-50 hover:bg-blue-600" onClick={checkOut}>Check out</button>
             </div>
             </div>
 
