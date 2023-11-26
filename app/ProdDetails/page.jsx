@@ -10,6 +10,7 @@ import ShopCart from "./components/ShopCart";
 import Container from "../components/Container";
 import { db } from "../context/firebase";
 import { ref, get, child, onValue, set, push, update } from 'firebase/database';
+import { reactStrictMode } from "@/next.config";
 
 const ProductDetails = ({ params }) => {
   const [product, setProduct] = useState([{ source: "", title: "" }]);
@@ -70,6 +71,12 @@ const ProductDetails = ({ params }) => {
                   </div>
                 </Link>
                 <ShopCart value={Number(item.key)}/>
+              </div>
+              <div>
+                {item.price}/pack
+              </div>
+              <div className="montserrat font-semibold text-[20px] text-center md:text-start">
+                {item.desc}
               </div>
             </div>
           </div>
