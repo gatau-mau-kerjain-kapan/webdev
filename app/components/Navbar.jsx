@@ -12,7 +12,7 @@ const Navbar = () => {
   const { currentUser } = UserAuth();
 
 
-  const navigation = ["Home", "Products"];
+  const navigation = [["Home", "/"], ["Products", "/ProdDetails"]];
 
   var menuNavBar;
 
@@ -133,10 +133,10 @@ const Navbar = () => {
             {navigation.map((menu, index) => (
               <li className="mr-3 nav__item" key={index}>
                 <Link
-                  href="/"
+                  href={menu[1]}
                   className="inline-block px-4 py-2 text-lg font-normal text-gray-800 no-underline rounded-md dark:text-gray-200 hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none dark:focus:bg-gray-800"
                 >
-                  {menu}
+                  {menu[0]}
                 </Link>
               </li>
             ))}
