@@ -103,7 +103,13 @@ export default function Cart() {
             onValue(ref(db, 'cart/' + currentUser.uid), (snapshot) => {
                 const data = snapshot.val();
                 setCart(data);
+<<<<<<< HEAD
                 setTotal(data.reduce((a, b) => a + (b.price * b.quantity), 0) ?? 0)
+=======
+                Object.values(data).forEach((item) => {
+                    setTotal(total + item.price * item.quantity);
+                }
+>>>>>>> parent of 030bf69 (fixing typo)
             })
         } catch (err) {
             console.log(err)
